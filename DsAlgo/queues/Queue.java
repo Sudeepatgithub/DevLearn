@@ -1,7 +1,7 @@
 package DsAlgo.queues;
 
 public class Queue {
-
+/*
     private int maxSize;
     private long qArray[];
     private int front;
@@ -51,5 +51,21 @@ public class Queue {
             stringBuilder.append(aQArray).append(" ");
         }
         return stringBuilder.toString();
+    }*/
+
+    private int queue[];
+    private int front;
+    private int rear;
+    private int max;
+
+    private Queue(int max) {
+        this.max = max;
+        queue = new int[max];
+        front = -1;
+        rear = 0;
+    }
+
+    private void enqueue(int x){
+
     }
 }
