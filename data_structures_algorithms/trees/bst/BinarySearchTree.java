@@ -108,7 +108,7 @@ public class BinarySearchTree {
         }
         Node nodeToDelete = current; //found the node
 
-        //1st case
+        //1st case - Node to delete has no child (leaf)
         if (nodeToDelete.left == null && nodeToDelete.right == null) {
             if (isLeftChild) {
                 parent.left = null;
@@ -116,16 +116,65 @@ public class BinarySearchTree {
                 parent.right = null;
             }
         }
-
-        //2nd Case - Two parts
-        // Node to delete is left child
-        else if(nodeToDelete.right == null){
-            if(nodeToDelete == root){
-                root = nodeToDelete.left;
+        //2nd Case - Node has 1 child
+        // Two parts -
+        // A - If node has only right child
+        else if (nodeToDelete.left == null) {
+            if (nodeToDelete == root) {
+                root = nodeToDelete.right;
+            } else {
+                if (isLeftChild) {
+                    parent.left = nodeToDelete.right;
+                } else {
+                    parent.right = nodeToDelete.right;
+                }
             }
         }
-
+        //B - If Node has only left child
+        else if (nodeToDelete.right == null) {
+            if (root == nodeToDelete) {
+                root = nodeToDelete.left;
+            } else {
+                if (isLeftChild) {
+                    parent.left = nodeToDelete.left;
+                } else {
+                    parent.right = nodeToDelete.left;
+                }
+            }
+        }
+        //3rd case - Node to delete has 2 children
+        else {
+            Node successor = getSuccessor(nodeToDelete);
+            if (nodeToDelete == root) {
+                root = successor;
+            } else {
+                if (isLeftChild) {
+                    parent.left = successor;
+                } else {
+                    parent.right = successor;
+                }
+            }
+            successor.left = nodeToDelete.left;
+        }
         return false;
+    }
+
+    private Node getSuccessor(Node nodeToDelete) {
+        Node successor = nodeToDelete;
+        Node successorParent = nodeToDelete;
+
+        Node current = nodeToDelete.right; //Goto one right
+
+        while (current != null) {   //Find the least left
+            successorParent = successor;
+            successor = current;
+            current = current.left;
+        }
+        if (successor != nodeToDelete.right) {
+            successorParent.left = successor.right;
+            successor.right = nodeToDelete.right;
+        }
+        return successor;
     }
 
 
