@@ -34,7 +34,7 @@ public class BinarySearch {
         return -1;
     }
 
-    private int recSearch(int[] arr, int p, int r, int find) {
+    private int recSearch(int[] arr, int p, int r, int find) {      //Recursive approach
         if (arr.length == 0) {
             return -1;
         }

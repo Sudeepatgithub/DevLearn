@@ -77,28 +77,7 @@ public class BinarySearchTree {
 
 
     private boolean delete(final int key) {
-/*
-        Node current = root;
-        Node parent = root;
-        boolean isLeftChild = false;
-        if (root == null) {
-            return false;
-        }
-        while (current.key != key) {
-            parent = current;
-            if (key < current.key) {
-                isLeftChild = true;
-                current = current.left;
-            } else {
-                isLeftChild = false;
-                current = current.right;
-            }
-            if (current == null) {
-                return false;   //Did not find the node
-            }
-        }
-        Node nodeToDelete = current; //found the node
-*/
+
 
         /*
         There could be 2 cases -
@@ -107,26 +86,43 @@ public class BinarySearchTree {
         - Node has two children
          */
 
-        //1st case
-
         Node current = root;
         Node parent = root;
+        boolean isLeftChild = false;
         if (root == null) {
             return false;
         }
         while (current.key != key) {
             parent = current;
             if (key <= current.key) {
+                isLeftChild = true;
                 current = current.left;
             } else {
+                isLeftChild = false;
                 current = current.right;
             }
             if (current == null) {
+                System.out.println("Not Found");
                 return false;
             }
         }
+        Node nodeToDelete = current; //found the node
 
+        //1st case
+        if (nodeToDelete.left == null && nodeToDelete.right == null) {
+            if (isLeftChild) {
+                parent.left = null;
+            } else {
+                parent.right = null;
+            }
+        }
 
+        //2nd Case
+        else if(nodeToDelete.right == null){
+            if(nodeToDelete == root){
+
+            }
+        }
 
         return false;
     }
