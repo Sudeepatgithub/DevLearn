@@ -1,4 +1,4 @@
-package data_structures_algorithms.sorting;
+package ds_algo.sorting;
 
 public class MergeSort {
 

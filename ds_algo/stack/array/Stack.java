@@ -1,4 +1,4 @@
-package data_structures_algorithms.stack.array;
+package ds_algo.stack.array;
 
 public class Stack {
     private int stack[];

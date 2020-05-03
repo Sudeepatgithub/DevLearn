@@ -1,4 +1,4 @@
-package data_structures_algorithms.arrays;
+package ds_algo.arrays;
 
 import java.util.Scanner;
 

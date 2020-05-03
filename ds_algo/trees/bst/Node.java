@@ -1,4 +1,4 @@
-package data_structures_algorithms.trees.bst;
+package ds_algo.trees.bst;
 
 public class Node {
     int key;

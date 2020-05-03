@@ -1,4 +1,4 @@
-package data_structures_algorithms.search;
+package ds_algo.search;
 
 public class BinarySearch {
 
