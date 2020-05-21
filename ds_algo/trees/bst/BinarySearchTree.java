@@ -2,16 +2,20 @@ package ds_algo.trees.bst;
 
 public class BinarySearchTree {
 
+    private static final int COUNT = 5;
     private Node root;
 
     public static void main(String[] args) {
         BinarySearchTree tree = new BinarySearchTree();
-        tree.insert(4, "Sudeep");
-        tree.insert(20, "Sudeep");
-        tree.insert(15, "Sudeep");
-        tree.insert(3, "Sudeep");
-        tree.insert(39, "Sudeep");
-        System.out.println(tree.find(4));
+        tree.insert(4, "4");
+        tree.insert(20, "20");
+        tree.insert(15, "15");
+        tree.insert(3, "3");
+        tree.insert(39, "39");
+        tree.delete(4);
+        tree.delete(39);
+        tree.delete(15);
+        tree.print2D();
     }
 
     private void insert(int key, String value) {
@@ -200,5 +204,37 @@ public class BinarySearchTree {
             }
         }
         return current;
+    }
+
+    // Function to print binary tree in 2D
+// It does reverse inorder traversal
+    private void print2DUtil(Node root, int space)
+    {
+        // Base case
+        if (root == null)
+            return;
+
+        // Increase distance between levels
+        space += COUNT;
+
+        // Process right child first
+        print2DUtil(root.right, space);
+
+        // Print current node after space
+        // count
+        System.out.print("\n");
+        for (int i = COUNT; i < space; i++)
+            System.out.print(" ");
+        System.out.print(root.value + "\n");
+
+        // Process left child
+        print2DUtil(root.left, space);
+    }
+
+    // Wrapper over print2DUtil()
+    private void print2D()
+    {
+        // Pass initial space count as 0
+        print2DUtil(root, 0);
     }
 }
