@@ -1,4 +1,4 @@
-package ds_algo.linkedlist.circular;
+package ds_algo.linkedlist;
 
 public class Node {
 
