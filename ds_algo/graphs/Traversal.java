@@ -44,7 +44,7 @@ public class Traversal {
     }
 
     public static void dfsRec(Map<String, List<String>> adjList, String src){
-        System.out.print(src+ " ");
+        System.out.println(src+ " ");
         List<String> neighbours = adjList.get(src);
         for(String neighbour: neighbours){
             dfsRec(adjList, neighbour);
