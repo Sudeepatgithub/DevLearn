@@ -50,4 +50,18 @@ public class Traversal {
             dfsRec(adjList, neighbour);
         }
     }
+    public static boolean hasPath(Map<String, List<String>> graph, String src, String dst) {
+        Stack<String> stack = new Stack<>();
+        stack.push(src);
+        while(stack.size()!=0){
+            String node = stack.pop();
+            if(node.equals(dst)){
+                return true;
+            }
+            for(String neighbour: graph.get(node)){
+                stack.push(neighbour);
+            }
+        }
+        return false;
+    }
 }
