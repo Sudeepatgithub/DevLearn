@@ -1,6 +1,6 @@
-package design_patterns.singelton;
+package design_patterns;
 
-public class ThreadC extends Thread {
+public class ThreadA extends Thread{
     @Override
     public void run() {
         SingletonClient.getClient().loop();

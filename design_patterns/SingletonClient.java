@@ -1,4 +1,4 @@
-package design_patterns.singelton;
+package design_patterns;
 
 public class SingletonClient {
 
